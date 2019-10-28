@@ -58,4 +58,16 @@ public class User implements Serializable {
     public void setAvatar(String avatar) {
         this.avatar = avatar;
     }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "name='" + name + '\'' +
+                ", password='" + password + '\'' +
+                ", email='" + email + '\'' +
+                ", id=" + id +
+                ", reg_time=" + reg_time +
+                ", avatar='" + avatar + '\'' +
+                '}';
+    }
 }

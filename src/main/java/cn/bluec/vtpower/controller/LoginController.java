@@ -10,14 +10,25 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.Map;
+
 @Controller
 public class LoginController {
     @Autowired
     private UserServiceImpl userServiceImpl;
 
     @RequestMapping("/login")
-    public User login(@RequestParam("username") String name, @RequestParam("password") String password) {
-        return userServiceImpl.findByName(name,password);
+    public User login(@RequestParam("entry_name") String name, @RequestParam("entry_password") String password) {
+        User user1 = userServiceImpl.findByName(name,password);
+
+        System.out.print(user1);
+
+        if(user1==null){
+            return null;
+        }else {
+            System.out.println("success"+user1.toString());
+            return user1;
+        }
     }
 
     @GetMapping(value = {"/do_login"})
