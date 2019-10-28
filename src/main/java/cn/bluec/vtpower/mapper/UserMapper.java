@@ -1,0 +1,12 @@
+package cn.bluec.vtpower.mapper;
+
+import cn.bluec.vtpower.entity.User;
+import org.apache.ibatis.annotations.Mapper;
+
+import java.util.List;
+
+@Mapper
+public interface UserMapper {
+    List<User> findAll();
+    User findByName(String name, String password);
+}
